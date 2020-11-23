@@ -4,7 +4,7 @@ async function getCameraList(): Promise<MediaDeviceInfo[]> {
   await navigator.mediaDevices.getUserMedia({
     video: true,
     audio: false
-  });
+  }).then(stream => stream.getVideoTracks().forEach(t => t.stop()));
   return navigator.mediaDevices.enumerateDevices();
 }
 
