@@ -20,7 +20,13 @@ function CameraList() {
       .map(d => 
     <tr key={d.deviceId}>
       <td>{d.label}</td>
-      <td><input type="text" value={`"${d.deviceId}"`} contentEditable={false}></input></td>
+      <td><textarea value={`{
+  "video": {
+    "deviceId": "${d.deviceId}",
+    "width": 1280,
+    "height": 720
+  }
+}`} contentEditable={false}></textarea></td>
     </tr>
     ));
   }, [devices])

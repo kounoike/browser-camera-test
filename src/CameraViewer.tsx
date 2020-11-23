@@ -6,10 +6,11 @@ type Props = {
 
 const CameraViewer: React.FC<Props> = props => {
   const el = useRef(document.createElement("video"));
-  const [settings, setSettings] = useState("");
+  const [settings, setSettings] = useState("ここにVideoTrackのsettings()が出ます");
 
   useEffect(() => {
     try{
+      if (props.constraint.length === 0) return;
       const constraint = JSON.parse(props.constraint);
       console.log(constraint);
       navigator.mediaDevices.getUserMedia(constraint).then(stream => {
