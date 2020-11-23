@@ -27,6 +27,7 @@ const CameraViewer: React.FC<Props> = props => {
       })
     } catch(e) {
       console.log(e);
+      setSettings(`ERROR: ${e}`);
     }
 
   }, [props.constraint]);
