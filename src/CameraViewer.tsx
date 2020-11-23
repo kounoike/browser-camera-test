@@ -41,7 +41,7 @@ const CameraViewer: React.FC<Props> = props => {
   return (
     <div>
       <video ref={el} style={videoStyle}></video>
-      <textarea rows={20} cols={80} contentEditable={false} value={settings}></textarea>
+      <textarea rows={20} cols={80} contentEditable={false} readOnly={true} value={settings}></textarea>
     </div>
   );
 };

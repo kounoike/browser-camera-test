@@ -26,7 +26,7 @@ function CameraList() {
     "width": 1280,
     "height": 720
   }
-}`} contentEditable={false}></textarea></td>
+}`} readOnly={true} contentEditable={false}></textarea></td>
     </tr>
     ));
   }, [devices])
