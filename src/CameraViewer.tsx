@@ -15,9 +15,10 @@ const CameraViewer: React.FC<Props> = props => {
       console.log(constraint);
       navigator.mediaDevices.getUserMedia(constraint).then(stream => {
         console.log("Stream opened");
-        const oldStream = el.current.srcObject as MediaStream;
-        if(oldStream) {
-          oldStream.getVideoTracks().forEach(c => c.stop());
+        
+        if(el.current.srcObject) {
+          (el.current.srcObject as MediaStream).getVideoTracks().forEach(c => c.stop());
+          el.current.srcObject = null;
         }
         setSettings(JSON.stringify(stream.getVideoTracks().map(t => t.getSettings()), null, "  "));
         el.current.srcObject = stream;
